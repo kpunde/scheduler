@@ -1,0 +1,23 @@
+meta {
+  name: createJob
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://127.0.0.1:8080/api/jobs
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "jobName": "testGet",
+      "jobGroup": "testGroup",
+      "cronExpression": "0 * * * * ?",
+      "url": "http://localhost:8081/api/test",
+      "method": "GET",
+      "headers": "{\"Custom-Header\":\"test-value\"}",
+      "active": true
+  }
+}
